@@ -1,27 +1,17 @@
 pipeline{
 
-  agent any
+  agent { label 'slave-linux' }
+  // options
+  options {
+    timeout(time: 20, unit: 'MINUTES') 
+  }
   
   stages{
   
     stage("build") {
     
       steps {
-        echo "Building the application..."
-      }
-    }
-    
-    stage("test") {
-    
-      steps {
-        echo "Testing the application..."
-      }
-    }
-    
-    stage("deploy") {
-    
-      steps {
-        echo "Deploying the application..."
+        echo "Only stage Building the application..."
       }
     }
     
